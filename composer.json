@@ -3,7 +3,7 @@
     "description": "send sms and get result",
     "require": {
         "php": ">=5.5.0",
-        "guzzlehttp/guzzle": "~5.0"
+        "guzzlehttp/guzzle": "^6.2"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.3"
