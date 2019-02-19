@@ -1,6 +1,6 @@
 <?php
 
-namespace illmy\Yhsms\Gateways;
+namespace illmy\YhSms\Gateways;
 
 /**
  * Class Gateway

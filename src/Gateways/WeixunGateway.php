@@ -10,7 +10,7 @@ use illmy\YhSms\Traits\HasHttpRequest;
  * 
  * @see http://sms.95ai.cn
  */
-class WeixunGateway extends Gateways
+class WeixunGateway extends Gateway
 {
     use HasHttpRequest;
 
@@ -38,7 +38,7 @@ class WeixunGateway extends Gateways
             'apName' => $this->config['apName'],
             'apPassword' => $this->config['apPassword'],
             'calledNumber' => $to,
-            'content' => $content
+            'content' => $message
         ];
 
         $result = $this->post($this->buildPointUrl('sendsms'),$params);
@@ -128,6 +128,6 @@ class WeixunGateway extends Gateways
      */
     protected function buildPointUrl($method)
     {
-        return 'http://'.$this->host.':'.$port.$this->apiMethhod[$method];
+        return 'http://'.$this->host.':'.$this->port.$this->apiMethhod[$method];
     }
 }
