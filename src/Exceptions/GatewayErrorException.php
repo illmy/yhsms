@@ -2,7 +2,7 @@
 
 namespace illmy\YhSms\Exceptions;
 
-class GatewayErrorExcetion extends Exceptions
+class GatewayErrorException extends Exception
 {
     public $raw = [];
 

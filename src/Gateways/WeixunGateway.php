@@ -42,8 +42,9 @@ class WeixunGateway extends Gateway
         ];
 
         $result = $this->post($this->buildPointUrl('sendsms'),$params);
-        if('OK' != $result['Code']) {
-            throw new GatewayErrorException();
+        
+        if('0' != $result['error']) {
+            throw new GatewayErrorException($result['message'],$result['error'],$result);
         }
 
         return $result;
@@ -63,10 +64,10 @@ class WeixunGateway extends Gateway
         
         $result = $this->post($this->buildPointUrl('receipt'),$params);
         
-        if('OK' != $result['Code']) {
-            throw new GatewayErrorException();
+        if('0' != $result['error']) {
+            throw new GatewayErrorException($result['message'],$result['error'],$result);
         }
-
+        
         return $result;
     }
 
@@ -90,7 +91,7 @@ class WeixunGateway extends Gateway
 
         $result = $this->post($this->buildPointUrl('addtpl'),$params);
 
-        if('OK' != $result['Code']) {
+        if('0' != $result['Code']) {
             throw new GatewayErrorException();
         }
 
