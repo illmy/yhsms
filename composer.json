@@ -1,0 +1,24 @@
+{
+    "name": "illmy/yh-sms",
+    "description": "send sms and get result",
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "~5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "illmy",
+            "email": "335111164@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "illmy\\YhSms\\": "src/"
+        }
+    }
+}
