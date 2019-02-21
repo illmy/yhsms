@@ -79,14 +79,16 @@ class WeixunGateway extends Gateway
      * @param string $remark       备注
      * @return void
      */
-    public function addTpl($tplcontent,$tpltype,$remark)
+    public function addTpl($tplcontent,$data = [])
     {
+        //变量替换 data['varchar'] ${\d+}
+        $tplcontent = preg_replace($data['varchar'], str_repeat('*', 15), $tplcontent);
         $params = [
             'uid' => $this->config['apName'],
             'pwd' => $this->config['apPassword'],
             'templateSms' => $tplcontent,
-            'templateType' => $tpltype,
-            'remark' => $remark
+            'templateType' => $data['tpltype'],
+            'remark' => $data['remark']
         ];
 
         $result = $this->post($this->buildPointUrl('addtpl'),$params);
