@@ -82,7 +82,7 @@ class WeixunGateway extends Gateway
     public function addTpl($tplcontent,$data = [])
     {
         //变量替换 data['varchar'] ${\d+}
-        $tplcontent = preg_replace($data['varchar'], str_repeat('*', 15), $tplcontent);
+        $tplcontent = preg_replace($data['varchar'], '/*'.str_repeat('*', 15).'*/', $tplcontent);
         $params = [
             'uid' => $this->config['apName'],
             'pwd' => $this->config['apPassword'],
